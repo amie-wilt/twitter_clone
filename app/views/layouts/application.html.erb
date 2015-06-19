@@ -1,12 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TwitterClone</title>
+  <title>MooMill | Twitter Clone</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="login-container">
+  <div class="login-inner-container">
+    <% unless current_user %>
+        <%= link_to "Sign In | ", new_user_session_path %>
+        <%= link_to 'Sign up', new_user_registration_path %>
+    <% else %>
+        <form action="<%= destroy_user_session_path %>" method="POST">
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>"/>
+          <input name="_method" type="hidden" value="delete"/>
+          <button type="submit" class="btn btn-default">Log Out as <%= current_user.email %></button>
+        </form>
+    <% end %>
+    <div>
+      <%= alert %>
+    </div>
+  </div>
+</div>
 
 <%= yield %>
 
