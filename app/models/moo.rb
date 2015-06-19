@@ -1,5 +1,5 @@
 class Moo < ActiveRecord::Base
   belongs_to :user
 
-  validates :description, presence: true
+  validates :description, length: { maximum: 140 }
 end
