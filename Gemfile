@@ -17,6 +17,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'acts_as_follower'
 
+# for aws cloud storage
+gem 'fog'
+# photo resizing
+gem 'mini_magick'
+# file upload solution
+gem 'carrierwave'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'

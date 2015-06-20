@@ -1,7 +1,16 @@
 Rails.application.routes.draw do
 
   devise_for :users
+  get 'u/:id' => 'users#show', as: :user
+
   resources :moos
+
+  resources :users do
+    member do
+      get :follow
+      get :unfollow
+    end
+  end
 
   root 'moos#index'
 
