@@ -10,7 +10,7 @@
 <div class="login-container">
   <div class="login-inner-container">
     <% unless current_user %>
-        <%= link_to "Sign In | ", new_user_session_path %>
+        <%= link_to "Sign In", new_user_session_path %>
         <%= link_to 'Sign up', new_user_registration_path %>
     <% else %>
         <form action="<%= destroy_user_session_path %>" method="POST">

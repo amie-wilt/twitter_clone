@@ -1,0 +1,23 @@
+<div class="form-container">
+  <%= form_for(@moo) do |f| %>
+      <% if @moo.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@moo.errors.count, "error") %> prohibited this moo from being saved:</h2>
+
+            <ul>
+              <% @moo.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+
+      <div class="field">
+        <%= f.label :description, "Your Moo: " %>
+        <%= f.text_area :description %>
+      </div>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+  <% end %>
+</div>

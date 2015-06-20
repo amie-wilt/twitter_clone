@@ -1,6 +1,6 @@
 class MoosController < ApplicationController
   def index
-    @moo = Moo.all
+    @moos = Moo.all
   end
 
   def show
