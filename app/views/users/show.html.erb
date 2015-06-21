@@ -1,5 +1,20 @@
-<h1>User#show</h1>
 
-<%= link_to "Follow", follow_user_path(@user)%>
+<% if current_user.following?(@user) %>
+  <%= link_to "Unfollow", unfollow_user_path(@user) %>
+<% else %>
+  <%= link_to "Follow", follow_user_path(@user)%>
+<% end%>
 
-<%= link_to "Unfollow", unfollow_user_path(@user) %>
+  <h1><%= user.name %></h1>
+
+  <ul>
+    <%= @user.moos.each do |moo| %>
+      <li><%= moo.descritption %></li>
+    <% end %>
+  </ul>
+
+
+
+
+
+<%= link_to 'Back to Moos', moos_path %>

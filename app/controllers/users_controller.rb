@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @moos = @user.moos(params[:moo_id])
   end
 
   def follow
