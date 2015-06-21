@@ -34,9 +34,9 @@ class UsersController < ApplicationController
 
     if current_user
       current_user.stop_following(@user)
-      flash[:notice] = "You are no longer following #{@user.monniker}."
+      flash[:notice] = "You are no longer following #{@user}."
     else
-      flash[:error] = "You must <a href='/users/sign_in'>login</a> to unfollow #{@user.monniker}.".html_safe
+      flash[:error] = "You must <a href='/users/sign_in'>login</a> to unfollow #{@user}.".html_safe
     end
   end
 
