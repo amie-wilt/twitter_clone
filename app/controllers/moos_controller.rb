@@ -1,4 +1,8 @@
 class MoosController < ApplicationController
+  before_action :set_moo, only: [:edit, :update, :destroy]
+
+  before_action :authenticate_user!, :except => [:index, :show]
+
   def index
     @moos = Moo.all
   end
@@ -11,7 +15,7 @@ class MoosController < ApplicationController
   end
 
   def create
-    @moo = current_user.moos.new(moo_params)
+    @moo = current_user.moos.create(moo_params)
 
     if @moo.save
       redirect_to @moo, notice: 'Your moo was created!'

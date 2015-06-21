@@ -1,13 +1,28 @@
 <h1>Welcome to MooMill!</h1>
 
 <% if current_user %>
-    <%= link_to 'New Moo', new_moo_path %>
+  <div class="form-container">
+  <%= form_for(current_user.moos.new, :url => moos_path(@moo)) do |f| %>
+    
+      <div class="actions">
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+      </div>
+      <div class="field">
+        <%= f.label :description, "Your Moo: " %>
+        <%= f.text_area :description %>
+      </div>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    <% end %>
+</div>
 
     <div>
       <% @moos.each do |moo| %>
           <p><%= moo.description %></p>
       <% end %>
     </div>
+
 <% else %>
     <p>To begin Mooing, please <%= link_to "Sign In", new_user_session_path %>. If you aren't already
       registered, <%= link_to 'Sign up', new_user_registration_path %> now!</p>
