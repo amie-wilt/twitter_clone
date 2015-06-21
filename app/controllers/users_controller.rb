@@ -1,5 +1,13 @@
 class UsersController < ApplicationController
 
+  def index
+    if params[:search]
+      @users = User.search(params[:search]).order("created_at DESC")
+    else
+      @users = User.all.order('created_at DESC')
+    end
+  end
+
   def show
     @user = User.find(params[:id])
     @moos = @user.moos(params[:moo_id])
@@ -31,4 +39,11 @@ class UsersController < ApplicationController
       flash[:error] = "You must <a href='/users/sign_in'>login</a> to unfollow #{@user.monniker}.".html_safe
     end
   end
+
+  # private
+
+  # def user_params
+  #   params.require(:user).permit(:user_id, :name, :avatar,)
+  # end
 end
+

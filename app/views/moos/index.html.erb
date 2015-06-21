@@ -1,6 +1,14 @@
 <h1>Welcome to MooMill!</h1>
 
 <% if current_user %>
+
+<%= link_to 'Users', users_path %>
+
+  <%= form_tag(users_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Users" %>
+  <%= submit_tag "Search", :name => nil %>
+  <% end %>
+
   <div class="form-container">
   <%= form_for(current_user.moos.new, :url => moos_path(@moo)) do |f| %>
     
@@ -15,7 +23,7 @@
         <%= f.submit %>
       </div>
     <% end %>
-</div>
+  </div>
 
     <div>
       <% @moos.each do |moo| %>

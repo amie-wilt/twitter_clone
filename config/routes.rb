@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
+
+  # devise_for :users
   get 'u/:id' => 'users#show', as: :user
 
   resources :moos
