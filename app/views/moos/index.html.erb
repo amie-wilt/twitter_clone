@@ -31,6 +31,11 @@
       <% end %>
     </div>
 
+    <div>
+      <p>following: <%= current_user.following_users_count %></p>
+      <p>followers: <%= current_user.followers.count %></p>
+    </div>
+
 <% else %>
     <p>To begin Mooing, please <%= link_to "Sign In", new_user_session_path %>. If you aren't already
       registered, <%= link_to 'Sign up', new_user_registration_path %> now!</p>

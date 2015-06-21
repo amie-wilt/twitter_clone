@@ -21,11 +21,11 @@ class UsersController < ApplicationController
         flash[:error] = "You cannot follow yourself."
       else
         current_user.follow(@user)
-        RecommenderMailer.new_follower(@user).deliver if @user.notify_new_follower
-        flash[:notice] = "You are now following #{@user.monniker}."
+        # RecommenderMailer.new_follower(@user).deliver if @user.notify_new_follower
+        redirect_to root_path flash[:notice] = "You are now following #{@user.name}."
       end
     else
-      flash[:error] = "You must <a href='/users/sign_in'>login</a> to follow #{@user.monniker}.".html_safe
+      flash[:error] = "You must <a href='/users/sign_in'>login</a> to follow #{@user.name}.".html_safe
     end
   end
 
