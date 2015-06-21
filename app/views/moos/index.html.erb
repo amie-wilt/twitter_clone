@@ -26,8 +26,8 @@
   </div>
 
     <div>
-      <% @moos.each do |moo| %>
-          <p><%= moo.description %></p>
+      <% Moo.timeline(current_user).each do |moo| %>
+        <%= moo.description %>
       <% end %>
     </div>
 
