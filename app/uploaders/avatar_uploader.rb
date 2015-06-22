@@ -1,5 +1,5 @@
 class AvatarUploader < CarrierWave::Uploader::Base
-
+  require 'carrierwave/orm/activerecord'
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
