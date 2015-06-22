@@ -26,8 +26,8 @@
   </div>
 
     <div>
-      <% Moo.timeline(current_user).each do |moo| %>
-        <%= moo.description %>
+      <% Moo.timeline(@user).each do |moo| %>
+        <p><%= moo.description %></p>
       <% end %>
     </div>
 
@@ -37,7 +37,7 @@
     </div>
 
 <% else %>
-    <p>To begin Mooing, please <%= link_to "Sign In", new_user_session_path %>. If you aren't already
+    <p>To begin Mooing, please <%= link_to 'Sign In', new_user_session_path %>. If you aren't already
       registered, <%= link_to 'Sign up', new_user_registration_path %> now!</p>
 <% end %>
 
