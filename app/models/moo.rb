@@ -1,7 +1,7 @@
 class Moo < ActiveRecord::Base
   def self.timeline(user)
-    follower_ids = user.followers.map(&:id)
-    all_ids = follower_ids << user.id
+    follows_ids = user.follows.map(&:id)
+    all_ids = follows_ids << user.id
     Moo.where(user_id: all_ids).order("created_at DESC")
   end
 
