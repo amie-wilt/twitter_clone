@@ -12,7 +12,7 @@
           </li>
         <% end %>
       </ul>
-    </li>
+    <% if current_user %>
     <li>
       <% if current_user.following?(user) && current_user != user %>
         <%= link_to "Unfollow", unfollow_user_path(user) %>
@@ -20,6 +20,7 @@
         <%= link_to "Follow", follow_user_path(user)%>
       <% end%>
     </li>
+    <% end %>
   </ul>
 
 
