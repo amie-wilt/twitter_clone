@@ -30,7 +30,8 @@
 
       <% Moo.timeline(current_user).each do |moo| %>
           <div class="moo-tweet">
-            <%= image_tag(current_user.avatar.url, :size => '32x32', :class => 'img-thumbnail navbar-right avatar') %>
+            <%= image_tag(moo.user.avatar.url, :size => '32x32', :class => 'img-thumbnail navbar-right avatar') %>
+            <span><h5><%= link_to "#{moo.user.name }", user_path(moo.user) %></h5>:</span>
             <span><%= moo.description %></span>
           </div>
       <% end %>

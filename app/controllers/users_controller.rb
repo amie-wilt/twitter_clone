@@ -16,17 +16,17 @@ class UsersController < ApplicationController
   def follow
     @user = User.find(params[:id])
 
-    if current_user
-      if current_user == @user
-        flash[:error] = "You cannot follow yourself."
-      else
+    # if current_user
+    #   if current_user == @user
+    #     flash[:error] = "You cannot follow yourself."
+    #   else
         current_user.follow(@user)
         # RecommenderMailer.new_follower(@user).deliver if @user.notify_new_follower
         redirect_to root_path flash[:notice] = "You are now following #{@user.name}."
-      end
-    else
-      flash[:error] = "You must <a href='/users/sign_in'>login</a> to follow #{@user.name}.".html_safe
-    end
+      #end
+    # else
+    #   flash[:error] = "You must <a href='/users/sign_in'>login</a> to follow #{@user.name}.".html_safe
+    # end
   end
 
   def unfollow
