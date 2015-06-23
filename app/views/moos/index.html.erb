@@ -24,11 +24,12 @@
         <% end %>
       </div>
 
-      <div>
-        <% Moo.timeline(current_user).each do |moo| %>
-            <p class="moo-tweet"><%= moo.description %></p>
-        <% end %>
-      </div>
+      <% Moo.timeline(current_user).each do |moo| %>
+          <div class="moo-tweet">
+            <%= image_tag(current_user.avatar.url, :size => '32x32', :class => 'img-thumbnail navbar-right avatar') %>
+            <span><%= moo.description %></span>
+          </div>
+      <% end %>
 
       <div>
         <p>following: <%= current_user.following_users_count %> | followers: <%= current_user.followers.count %></p>

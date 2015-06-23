@@ -9,7 +9,7 @@
 
   <ul>
     <% @user.moos.each do |moo| %>
-      <li><%= moo.description %></li>
+      <li class="moo-tweet"><%= moo.description %></li>
     <% end %>
   </ul>
 
@@ -17,4 +17,3 @@
 
 
 
-<%= link_to 'Back to Moos', moos_path %>

@@ -40,7 +40,7 @@
                 <button type="submit" class="btn btn-default">Log Out as <%= current_user.name %></button>
               </li>
             </form>
-            <li><%= link_to image_tag(current_user.avatar.url, :size => '32x32', :class => 'img-thumbnail navbar-right avatar'), edit_registration_path(:user) %></li>
+            <li><%= image_tag(current_user.avatar.url, :size => '32x32', :class => 'img-thumbnail navbar-right avatar') %></li>
         <% end %>
       </ul>
     </div>
