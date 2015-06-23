@@ -3,6 +3,10 @@
 
   <% if current_user %>
 
+      <div class="following-container">
+        <span>Following: <%= current_user.following_users_count %> | Followers: <%= current_user.followers.count %></span>
+      </div>
+
       <%= form_tag(users_path, :method => "get", id: "search-form") do %>
           <%= text_field_tag :search, params[:search], placeholder: "Search Users" %>
           <%= submit_tag "Search", :name => nil %>
@@ -31,9 +35,6 @@
           </div>
       <% end %>
 
-      <div>
-        <p>following: <%= current_user.following_users_count %> | followers: <%= current_user.followers.count %></p>
-      </div>
 
   <% else %>
       <div class="homepage-signup-container">

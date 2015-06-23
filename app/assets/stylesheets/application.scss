@@ -55,15 +55,32 @@ body {
   .log-out-button {
     border: none;
     background-color: white;
-    color: deeppink;
+    color: #777;
     font-size: 14px;
     cursor: pointer;
 
     &:focus {
       outline: 0;
     }
+
+    &:hover {
+      color: deeppink;
+    }
   }
 }
+
+
+.following-container {
+  margin-bottom: 20px;
+  text-align: right;
+  color: deeppink;
+
+  span {
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 5px;
+  }
+}
+
 
 .homepage-signup-container {
   text-align: center;
