@@ -18,7 +18,7 @@ class MoosController < ApplicationController
     @moo = current_user.moos.create(moo_params)
 
     if @moo.save
-      redirect_to @moo, notice: 'Your moo was created!'
+      redirect_to moos_path, notice: 'Your moo was created!'
     else
       render :new
     end
