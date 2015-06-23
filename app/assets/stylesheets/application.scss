@@ -38,6 +38,18 @@ body {
       color: deeppink;
     }
   }
+
+  .sign-up-link {
+    color: white;
+    padding: 10px;
+    background-color: deeppink;
+    border-radius: 5px;
+    transition: 0.2s ease;
+
+    &:hover {
+      color: #555;
+    }
+  }
 }
 
 .homepage-signup-container {
