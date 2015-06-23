@@ -52,12 +52,26 @@ h1 {
 }
 
 .moo-tweet {
-  border-bottom: 1px solid lightpink;
+  border-bottom: 1px solid lightgray;
   padding: 5px;
   margin-top: 20px;
 
+  a {
+    text-decoration: none;
+    color: deeppink;
+    padding-right: 10px;
+    font-style: italic;
+    transition: 0.2s ease;
+    border-right: 1px solid lightgray;
+    margin-right: 10px;
+
+    &:hover {
+      color: #555;
+    }
+  }
+
   img {
-    margin-right: 20px;
+    margin-right: 10px;
   }
 }
 
