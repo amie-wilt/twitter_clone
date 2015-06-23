@@ -30,14 +30,9 @@ class UsersController < ApplicationController
   end
 
   def unfollow
-    @user = User.find(params[:id])
-
-    if current_user
-      current_user.stop_following(@user)
-      flash[:notice] = "You are no longer following #{@user}."
-    else
-      flash[:error] = "You must <a href='/users/sign_in'>login</a> to unfollow #{@user}.".html_safe
-    end
+    @user = User.find(params[:id])  
+    current_user.stop_following(@user)
+    redirect_to root_path flash[:notice] = "You are no longer following #{@user}."
   end
 
   private
