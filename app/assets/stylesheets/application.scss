@@ -34,7 +34,8 @@ body {
     text-decoration: none;
     color: black;
 
-    &:hover {
+    &:hover,
+    &:active {
       color: deeppink;
     }
   }
@@ -48,6 +49,18 @@ body {
 
     &:hover {
       color: #555;
+    }
+  }
+
+  .log-out-button {
+    border: none;
+    background-color: white;
+    color: deeppink;
+    font-size: 14px;
+    cursor: pointer;
+
+    &:focus {
+      outline: 0;
     }
   }
 }

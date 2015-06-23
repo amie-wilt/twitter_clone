@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :registrations => "registrations" }
 
   # devise_for :users
-  get 'u/:id' => 'users#show', as: :user
+  # get 'u/:id' => 'users#show', as: :user
+
+  get 'users/:id/profile', to: 'users#profile', as: 'user_profile'
 
   resources :moos
 
