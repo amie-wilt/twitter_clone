@@ -3,7 +3,7 @@
 <% @users.each do |user| %>
     <div class="user-avatar-name-container">
       <div class="user-image-name">
-        <%= image_tag(current_user.avatar.url, :size => '32x32', :class => 'img-thumbnail navbar-right avatar') %>
+        <%= image_tag(user.avatar.url, :size => '32x32', :class => 'img-thumbnail navbar-right avatar') %>
         <%= user.name %>
       </div>
       <div class="follow-unfollow-container">

@@ -12,6 +12,10 @@ class User < ActiveRecord::Base
   # Avatar uploader using carrierwave
   mount_uploader :avatar, AvatarUploader
 
+  validates_integrity_of :avatar
+  validates_processing_of :avatar
+  validates_download_of :avatar
+
   def self.search(query)
     where("name like ?", "%#{query}%") 
   end
