@@ -19,6 +19,7 @@
     <li>
       <%= link_to 'Unfollow', unfollow_user_path(user) %>
     </li>
+    <li><%= link_to 'Destroy', edit_user_path(user), method: :delete, data: {confirm: 'Are you sure?'} %></li>
   </ul>
 
 
