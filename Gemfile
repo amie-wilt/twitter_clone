@@ -17,6 +17,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'acts_as_follower'
 gem 'faker'
+gem 'kaminari'
 
 # for aws cloud storage
 gem 'fog'
