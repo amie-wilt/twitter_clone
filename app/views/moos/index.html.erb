@@ -32,11 +32,14 @@
       <% Moo.timeline(current_user).each do |moo| %>
           <div class="moo-tweet">
             <%= image_tag(moo.user.avatar.url, :size => '32x32', :class => 'img-thumbnail navbar-right avatar') %>
-            <span><%= link_to "@#{moo.user.name }", user_path(moo.user) %></span>
+            <span><%= link_to "@#{moo.user.name}", user_path(moo.user) %></span>
             <span><%= moo.description %></span>
           </div>
       <% end %>
 
+      <div class="paginate-container">
+        <%= paginate @moos, :window => 2 %>
+      </div>
 
   <% else %>
       <div class="homepage-signup-container">
@@ -45,7 +48,5 @@
         <%= image_tag("cow-homepage.png", height: 200, class: "cow") %>
       </div>
   <% end %>
-  <div class="paginate-container">
-    <%= paginate @moos, :window => 2 %>
-  </div>
+
 </div>
