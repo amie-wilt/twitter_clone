@@ -4,7 +4,8 @@
   <% if current_user %>
 
       <div class="following-container">
-        <span>Following: <%= current_user.following_users_count %> | Followers: <%= current_user.followers.count %></span>
+        <span>Following: <%= current_user.following_users_count %>
+          | Followers: <%= current_user.followers.count %></span>
       </div>
 
       <%= form_tag(users_path, :method => "get", id: "search-form") do %>
@@ -31,7 +32,7 @@
       <% Moo.timeline(current_user).each do |moo| %>
           <div class="moo-tweet">
             <%= image_tag(moo.user.avatar.url, :size => '32x32', :class => 'img-thumbnail navbar-right avatar') %>
-            <span><%= link_to "#{moo.user.name }", user_path(moo.user) %></span>
+            <span><%= link_to "@#{moo.user.name }", user_path(moo.user) %></span>
             <span><%= moo.description %></span>
           </div>
       <% end %>
@@ -44,5 +45,7 @@
         <%= image_tag("cow-homepage.png", height: 200, class: "cow") %>
       </div>
   <% end %>
-
+  <div class="paginate-container">
+    <%= paginate @moos, :window => 2 %>
+  </div>
 </div>

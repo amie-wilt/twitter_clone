@@ -4,7 +4,7 @@ class MoosController < ApplicationController
   before_action :authenticate_user!, :except => [:index, :show]
 
   def index
-    @moos = Moo.all
+    @moos = Moo.timeline(current_user).page(params[:page]).per(5)
   end
 
   def show
